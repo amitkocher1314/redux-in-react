@@ -1,5 +1,8 @@
 import classes from './Counter.module.css';
 import {useSelector,useDispatch} from 'react-redux' ;
+
+//step 4
+import { counterActions } from '../store/index';
 const Counter = () => {
 
 //use selector hook to extract value from redux central store  BASICALLY WE ARE ADDING SUBSCRIPTION PART to component
@@ -9,21 +12,19 @@ const Counter = () => {
  const dispatch = useDispatch();
 
  const incrementHandler = ()=>{
-    dispatch({type:'increment'})
+    dispatch(counterActions.increment());
  }
  const increseHandler = () =>{
-  dispatch({
-    type:'increase' , amount: 5
-  });
+  dispatch(counterActions.increase(5))
  }
  const decrementHandler =()=>{
-     dispatch({type:'decrement'})
+     dispatch(counterActions.decrement())
  }
  
   const show = useSelector(state => state.showCounter);
 
  const toggleCounterHandler = () => {
-  dispatch({type:'toggle'})
+  dispatch(counterActions.toggleCounter)
  };
 
   return (
