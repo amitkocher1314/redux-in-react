@@ -6,8 +6,9 @@ import { counterActions } from '../store/index';
 const Counter = () => {
 
 //use selector hook to extract value from redux central store  BASICALLY WE ARE ADDING SUBSCRIPTION PART to component
- const counter =    useSelector(state=> state.counter)          //in use selector we pass function which recive state managed by our REDUX
-  
+ const counter =    useSelector(state=> state.counterStore.counter)          //in use selector we pass function which recive state managed by our REDUX
+ const show = useSelector(state => state.counterStore.showCounter);
+
  //use dispatch to dispatch action provided in central store
  const dispatch = useDispatch();
 
@@ -21,7 +22,6 @@ const Counter = () => {
      dispatch(counterActions.decrement())
  }
  
-  const show = useSelector(state => state.showCounter);
 
  const toggleCounterHandler = () => {
   dispatch(counterActions.toggleCounter)
