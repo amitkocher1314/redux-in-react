@@ -2,7 +2,7 @@ import classes from './Counter.module.css';
 import {useSelector,useDispatch} from 'react-redux' ;
 
 //step 4
-import { counterActions } from '../store/index';
+import { counterActions } from '../store/counter-slice';
 const Counter = () => {
 
 //use selector hook to extract value from redux central store  BASICALLY WE ARE ADDING SUBSCRIPTION PART to component
